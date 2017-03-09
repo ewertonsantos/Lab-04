@@ -13,11 +13,12 @@ cin >> n;
 
 
 
-    for(i==0;i<n; i++){
-    srand(time(NULL));
+    for(i=0;i<n; i++){
+    //srand(time(NULL));
     d = (rand() % 6);
-    d++;
-    cout << "O numero foi: " << d;
+    d = d +1;
+    //d= d/10;
+    cout << "O numero foi: " << d <<endl;
     }
 
 return 0;
