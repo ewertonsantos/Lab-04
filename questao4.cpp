@@ -12,13 +12,13 @@ float ApresentaPorcentagem(int a,int b)
 }
 int Maior(int ar[])
 {
-    int maior2,i,aux;
+    int maior2,i,aux;                                     // percorre todos os jogadores e procura qual teve maior votação
     maior2 = 0;
     for(i=0;i<24;i++){
-        if(ar[i] != '\0'){
-           if(ar[i] >= maior2){
-            maior2 = ar[i];
-            aux = i;
+        if(ar[i] != '\0'){                                // senao for vazio ou seja se tiver recebido votos
+           if(ar[i] >= maior2){                           // compara com um maior2 que é uma variável auxiliar
+            maior2 = ar[i];                               // se for maior que a variavel maior2 auxiliar ela recebe o ar[i]
+            aux = i;                                        // este auxiliar foi usado para fixar a posicao do array com maior votação
            }
         }
     }
@@ -36,23 +36,25 @@ int main()
     cout << "Numero do jogador (0=fim): " << endl;
     cin >> n1;
     if(n1 == 0){
-        break;
+        break;                                                          // sai do while quando apertar '0'
+
     }
     if(n1 > 23 || n1 < 0){
         cout << "Informe um valor entre 1 e 23 ou 0 para sair" << endl;
-        continue;
-    }
+        continue;                                                       // volta para o inicio do while se digitado
+    }                                                                   // algum numero fora do escopo
     aux++;
     jogador[n1]++;
     }
 
-    cout << "Resultado da votacao" << endl;
-    cout << "Foram computados " << aux <<  " votos" << endl;
-    cout << "Jogador -- Votos -- Porcentagem" << endl;
+    cout << "Resultado da votacao" << endl;                             // declara o final da votação
+    cout << "Foram computados " << aux <<  " votos" << endl;            // numero total de votos
+    cout << "Jogador -- Votos -- Porcentagem" << endl;                  // cabecario para a tabela
 
-    for(i=0;i<24;i++){
-        if(jogador[i] != '\0'){
-            cout << i << "\t"  << jogador[i] << "\t"  << ApresentaPorcentagem(jogador[i],aux) << endl;
+    for(i=0;i<24;i++){                                                  // percorre todo o array imprimindo cada jogador
+        if(jogador[i] != '\0'){                                         // com o numero e a porcentagem de votos dele
+            cout << i << "\t"  << jogador[i] << "\t"  << endl;
+            cout << "" << ApresentaPorcentagem(jogador[i],aux) << endl;
         }
     }
     maiorjog = Maior(jogador);
